@@ -44,6 +44,14 @@ class Test(unittest.TestCase):
         }
         result = process_log(log_content)
         self.assertEqual(result, expected_output)
+        
+    #Error case
+    def test_case_4(self):
+        log_content = 1234
+        expected_output = "Log content is not a string"
+        
+        result = process_log(log_content)
+        self.assertEqual(result, expected_output)
 
 
 

@@ -1,5 +1,5 @@
 import re
-import unittest
+
 def process_log(log_content):
 
     # initializing data
@@ -12,7 +12,7 @@ def process_log(log_content):
         return data
 
 
-    # The pattern to find the error message
+    # The pattern to find the error message [YYYY-MM-DD HH:MM:SS] LEVEL: Message
     pattern = r"\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}] ERROR:([^[]*)"
     
     # using the pattern to find all matches
@@ -23,7 +23,7 @@ def process_log(log_content):
     except Exception as e:
         return f"Something went wrong! - {e}"
     
-    #removing whitespaces 
+    #removing whitespaces \n
     result = [message.strip() for message in result]
 
     # calculating total errors and sorted error messages
